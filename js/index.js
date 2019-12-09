@@ -1,41 +1,53 @@
 /******* GLOBAL VARIABLES/DATA ********/
 // Define all of your variables here, including Object and Array references
 
-const courses = [
+const products = [
     {
-      name: `Usability Testing 1`,
-      code: `INTR2014`,
-      instructor: `Nastaran Dadashi`,
-      start: {semester: `Fall`, year: 2019},
-      weeks: 15,
-      breaks: `Yes`,
-      duration: 180,
-      category: `design`,
-      img: `img/generic.png`,
+      name: `Generic Product A`,
+      description: `Oh look! A super generic product that no one would buy! Seriously who would buy this thing????`,
+      colours: {red: `red`, white: `white`, blue: `blue`},
+      sizes: {small: `S`, medium: `M`, large: `L`},
+      rating: `4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span>`,
+      category: `clothing`,
+      img: `img/product-a.png`,
       cost: 1200
     }, {
-      name: `3D Visualization`,
-      code: `INTR2015`,
-      instructor: `Izzy Rashid`,
-      start: {semester: `Fall`, year: 2019},
-      weeks: 15,
-      breaks: `Yes`,
-      duration: 180,
-      category: `design`,
-      img: `img/logo.png`,
+      name: `Generic Product B`,
+      description: `Oh look! A super generic product that no one would buy! Seriously who would buy this thing????`,
+      colours: {red: `red`, white: `white`, blue: `blue`},
+      sizes: {small: `S`, medium: `M`, large: `L`},
+      rating: `4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span>`,
+      category: `garbage`,
+      img: `img/product-b.png`,
       cost: 1340
     }, {
-      name: `Interface Development 1`,
-      code: `INTR2002`,
-      instructor: `Rocco Panacci`,
-      start: {semester: `Fall`, year: 2019},
-      weeks: 15,
-      breaks: `Yes`,
-      duration: 180,
-      category: `development`,
-      img: null,
+      name: `Generic Product C`,
+      description: `Oh look! A super generic product that no one would buy! Seriously who would buy this thing????`,
+      colours: {red: `red`, white: `white`, blue: `blue`},
+      sizes: {small: `S`, medium: `M`, large: `L`},
+      rating: `4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span>`,      
+      category: `clothing`,
+      img: `img/product-a.png`,
       cost: 980
-    }
+    }, {
+      name: `Generic Product D`,
+      description: `Oh look! A super generic product that no one would buy! Seriously who would buy this thing????`,
+      colours: {red: `red`, white: `white`, blue: `blue`},
+      sizes: {small: `S`, medium: `M`, large: `L`},
+      rating: `4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span>`,
+      category: `garbage`,
+      img: `img/product-b.png`,
+      cost: 1000
+    }, {
+      name: `Generic Product E`,
+      description: `Oh look! A super generic product that no one would buy! Seriously who would buy this thing????`,
+      colours: {red: `red`, white: `white`, blue: `blue`},
+      sizes: {small: `S`, medium: `M`, large: `L`},
+      rating: `4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span>`,
+      category: `clothing`,
+      img: `img/product-a.png`,
+      cost: 990
+    },
   ];
   
   
@@ -50,35 +62,55 @@ const courses = [
     return ``;
   }
   
-  // Function: getCourseAsHtmlString
-  // Parameters: course:Object
+  // Function: getProductAsHtmlString
+  // Parameters: product:Object
   // Return: String of HTML (<article>)
-  function getCourseAsHtmlString(course) {
+  function getProductsAsHtmlString(product) {
   
     let greatDeal = ``; // start with blank as default
-    if (course.cost < 1000) {
-      greatDeal = `<small class="callout">Great deal!!</small>`;
+    if (product.cost < 1000) {
+      greatDeal = `<small class="callout">ON SALE!!</small>`;
     }
     // Other ways you could use this...
     //    Sales, limited quantity, soldout
   
-    return `<article class="course ${course.category}">
-      <h3>${course.name} ${greatDeal}</h3>
-      <img src="${course.img}" alt="Logo for ${course.name}" class="product-img">
-      <ul class="course-info">
-        <li>Course Code: <strong>${course.code}</strong></li>
-        <li>Instructor: <strong>${course.instructor}</strong></li>
-        <li>Start: <strong>${course.start.semester} ${course.start.year}</strong></li>
-        <li>
-          Weeks: <strong>${course.weeks}</strong>
-          <ul>
-            <li>Includes Break: <strong>${course.break}</strong></li>
-          </ul>
-        </li>
-        <li>Duration: <strong>${course.duration}</strong></li>
-      </ul>
-      <div class="course-cost">${course.cost}</div>
-    </article>`;
+    return `<article class="product ${product.category}">
+    <header>
+      <img src="${product.img}" alt="Product Image" class="product-img">
+    </header>
+    <h3>${product.name}</h3>
+    <p>${product.description}</p>
+    <form>
+      <fieldset>
+        <legend>Colours</legend>
+        <ul>
+          <li><label><input type="radio" name="colour" value="r"> <span>${product.colours.red}</span></label></li>
+          <li><label><input type="radio" name="colour" value="w"> <span>${product.colours.white}</span></label></li>
+          <li><label><input type="radio" name="colour" value="b"> <span>${product.colours.blue}</span></label></li>
+        </ul>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sizes</legend>
+        <ol>
+          <li><label><input type="radio" name="size" value="s"> <span>${product.size.small}</span></label></li>
+          <li><label><input type="radio" name="size" value="m"> <span>${product.size.medium}</span></label></li>
+          <li><label><input type="radio" name="size" value="l"> <span>${product.size.large}</span></label></li>
+        </ol>
+      </fieldset>
+
+      <footer>
+        <dl>
+          <dt>Rating</dt>
+          <dd>${product.rating}</dd>
+        </dl>
+        <data value="39">${product.cost}</data>
+        <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+        <button type="button"><span class="material-icons">favorite</span></button>
+        <a href="#">see more</a>
+      </footer>
+    </form>
+  </article>`;
   }
   
   // Add or remove ("toggle") the .column-view class on the layout
@@ -86,7 +118,7 @@ const courses = [
   // Parameters: none
   // Return: none
   function switchLayout() {
-    document.getElementById('courses').classList.toggle('column-view');
+    document.getElementById('products').classList.toggle('column-view');
   }
   
   // Only include products under 1300
@@ -102,26 +134,26 @@ const courses = [
   function checkInput(event) {
     const userIsLookingFor = event.target.value.toLowerCase();
    
-    const onlyMatchingNames = courses.filter(prod => prod.name.toLowerCase().includes(userIsLookingFor));
-    renderCourses(onlyMatchingNames);
+    const onlyMatchingNames = products.filter(prod => prod.name.toLowerCase().includes(userIsLookingFor));
+    renderProducts(onlyMatchingNames);
   }
   
   
   
   
   // Put all items of a supplied Array into the document
-  // Function: renderCourses
+  // Function: renderProduct
   // Parameters: arr:Array
   // Return: none
-  function renderCourses(arr) {
-    // 1. map() the Array through getCourseAsHtmlString into a new Array
-    const arrOfHtml = arr.map(getCourseAsHtmlString)
+  function renderProducts(arr) {
+    // 1. map() the Array through getProductAsHtmlString into a new Array
+    const arrOfHtml = arr.map(getProductAsHtmlString)
   
     // 2. join() the new Array into a single String of HTML
     const strOfHtml = arrOfHtml.join('\n')
   
     // 3. Put the String into the innerHTML of the document's #courses
-    document.getElementById('courses').innerHTML = strOfHtml;
+    document.getElementById('products').innerHTML = strOfHtml;
   }
   
   
@@ -130,30 +162,27 @@ const courses = [
   // Execute functions that will access data
   
   
-  console.table(courses);
+  console.table(products);
   
   // Render courses less than 1300
-  const affordableCourses = courses.filter(filterByPrice);
-  renderCourses(affordableCourses);
+  const affordableCourses = products.filter(filterByPrice);
+  renderCourses(affordableProducts);
   
   
   
   function checkCategory(event) {
     const userIsLookingFor = event.target.value;
   
-    const onlyMatchingCategories = courses.filter(prod => prod.category == userIsLookingFor);
+    const onlyMatchingCategories = products.filter(prod => prod.category == userIsLookingFor);
     renderCourses(onlyMatchingCategories);
   }
   
-  
-  
-  // Find the layout <button>, add a "listener" to wait for a click, then call switchLayout()
-  document.getElementById('layout').addEventListener('click', event => switchLayout() )
+
   
   // Find the <input> field, run checkInput when a user changes the 'input'
-  document.getElementById('courseName').addEventListener('input', event => checkInput(event) )
+  document.getElementById('productName').addEventListener('input', event => checkInput(event) )
   
   // Find the <select> field, run checkCategory when there's a 'change' to the drop down value
-  document.getElementById('courseCategory').addEventListener('change', event => checkCategory(event) )
+  document.getElementById('productCategory').addEventListener('change', event => checkCategory(event) )
   
   

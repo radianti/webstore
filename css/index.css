@@ -1,29 +1,43 @@
 /* general */
 
 * {
-    background: white;
     color: black;
     font: 1em/1.4em helvetica, sans-serif;    
-    margin: 0;
 }
 
-
-
-
-
-
-
-/* top bar */
-
-
-
-
-/* products */
 body {
     background-color: #ddd;
-    color: #111;
-    font: 1em helvetica, arial, sans-serif;
-  }
+}
+
+footer {
+	background-color: #f1f1f1;
+}
+
+/* nav bar */
+
+nav {
+	overflow: hidden;
+	background-color: #f1f1f1;
+	padding: 20px 10px;
+}
+
+nav a{
+    float: left;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	color: black;
+	border-radius: 0;
+	padding: 12px;
+}
+
+nav a:hover {
+    background-color: green;
+	color: white;
+}
+
+/* products */
 
 .products {
     display: grid;
@@ -43,47 +57,31 @@ body {
     position: relative;
 }
 
-
-
-header {
-	overflow: hidden;
-	background-color: #f1f1f1;
-	padding: 20px 10px;
+.product-cost {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    font-size: 2em;
+    font-weight: bold;
 }
- 
-.header a {
-	float: left;
-	text-align: center;
-	text-decoration: none;
-	font-size: 18px;
-	line-height: 25px;
-	color: black;
-	border-radius: 0;
-	padding: 12px;
-}
-  
-#logo {
-	font-size: 25px;
-	font-weight: bold;
-}
-  
-.header a:hover {
-	background-color: green;
-	color: white;
-}
-  
-.header a.active {
-	background-color: white;
-	color: gray;
-}
-  
-.header-right {
-	float: right;
+.product-cost::before {
+    content: "$";
+    font-size: 0.75em;
+    vertical-align: top;
 }
 
-footer {
-	background-color: #f1f1f1;
+.product-img {
+    width: 10em;
 }
+
+.clothing {
+    border-left: 0.5em solid magenta;
+}
+
+.garbage {
+    border-left: 0.5em solid greenyellow;
+}
+
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
 	.header a {
